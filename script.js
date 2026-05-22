@@ -67,7 +67,7 @@ let map, marker;
 
 // Initialise map on page load
 (function initMap() {
-  map = L.map('map', { attributionControl: false }).setView([-33.8688, 151.2093], 12); // Sydney default
+  map = L.map('map', { attributionControl: false }).setView([-27.4698, 153.0251], 15); // Brisbane default
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
@@ -86,6 +86,9 @@ let map, marker;
     document.getElementById('site-code').value = encodeSiteCode(lat, lng, 9);
     showFeedback('');
   });
+
+  // Auto-load the default address on startup
+  searchAddress();
 })();
 
 // ============================================================
