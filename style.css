@@ -167,6 +167,54 @@ input:focus {
   gap: 8px;
 }
 
+/* Tooltip on label */
+.tooltip-trigger {
+  position: relative;
+  border-bottom: 1px dashed #0071e3;
+  color: #0071e3;
+  cursor: default;
+  text-transform: none;
+  font-size: inherit;
+  letter-spacing: inherit;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  padding: 10px 13px;
+  border-radius: 12px;
+  background: rgba(30, 30, 32, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f5f5f7;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  pointer-events: none;
+  z-index: 100;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(30, 30, 32, 0.88);
+}
+
+.tooltip-trigger:hover .tooltip {
+  display: block;
+}
+
 button {
   flex: 1;
   padding: 10px 8px;
