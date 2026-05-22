@@ -5,7 +5,7 @@
 const BASE32 = '0123456789bcdefghjkmnpqrstuvwxyz';
 
 function encodeSiteCode(lat, lng, precision) {
-  precision = precision || 7;
+  precision = precision || 9;
   let idx = 0, bit = 0, isEven = true;
   let minLat = -90, maxLat = 90;
   let minLng = -180, maxLng = 180;
@@ -83,7 +83,7 @@ let map, marker;
     const lng = e.latlng.lng;
     setInputs(lat, lng);
     placeMarker(lat, lng);
-    document.getElementById('site-code').value = encodeSiteCode(lat, lng, 7);
+    document.getElementById('site-code').value = encodeSiteCode(lat, lng, 9);
     showFeedback('');
   });
 })();
@@ -121,7 +121,7 @@ function showFeedback(msg) {
 function updateLocation(lat, lng) {
   setInputs(lat, lng);
   placeMarker(lat, lng);
-  document.getElementById('site-code').value = encodeSiteCode(lat, lng, 7);
+  document.getElementById('site-code').value = encodeSiteCode(lat, lng, 9);
 }
 
 // ============================================================
@@ -176,8 +176,8 @@ function generateSiteCode() {
   if (isNaN(lat) || isNaN(lng)) {
     return showFeedback('Please enter valid lat/lng.');
   }
-  document.getElementById('site-code').value = encodeSiteCode(lat, lng, 7);
-  showFeedback('Site code generated.');
+  document.getElementById('site-code').value = encodeSiteCode(lat, lng, 9);
+  showFeedback('Site/location code generated.');
 }
 
 // Decode site code -> update inputs and map
